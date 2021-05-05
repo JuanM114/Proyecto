@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{%block contenido %}
+<h1>Ver detalle</h1>
+
+  {{detalle.id}}
+  {{detalle.nombre}}
+  {{detalle.precio}}
+  {{detalle.marca}}
+
+{% for c in detalle.categorias.all %}
+   {{ c }}
+{% endfor %}  
+  <a href="{% url 'ver_producto' id_prod=p.nombre %}" class="btn btn = info">ver</a>
+{% endblock contenido %}
