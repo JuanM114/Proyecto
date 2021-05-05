@@ -25,7 +25,7 @@ SECRET_KEY = 'w$*0y1+=!yuc#c!8j7t419$lvdre46av&ydz^jq8l8ai1p9xc#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['proyectosenanoticias.herokuapp.com']
 
 
 # Application definition
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'home',
     'webservices',
     'rest_framework',
+    'gunicorn',
+    'psycopg2',
 ]
 
 MIDDLEWARE = [
@@ -78,12 +80,12 @@ WSGI_APPLICATION = 'noticias.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.mysql',
+        'ENGINE':'django.db.backends.psycopg2',
         'NAME':'noticias',
-        'USER':'root',
-        'PAsSWORD':'',
-        'HOST':'127.0.0.1',
-        'PORT':'3306',
+        'USER':'vtjwkarkvcihqg',
+        'PAsSWORD':'f71d604cd8bc392ffafa2822ad4892417f13833db8002376c76ae278a86d60c0',
+        'HOST':'ec2-54-198-252-9.compute-1.amazonaws.com',
+        'PORT':'5432',
         
     }
 }
@@ -126,3 +128,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT ="static"
